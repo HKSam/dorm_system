@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>宿舍管理系统</title>
+    <link href="../css/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/model.css" rel="stylesheet" type="text/css" />
+    <link href="../css/SimpleTree.css" rel="stylesheet" type="text/css" />
+    <link href="../css/fu_stumessege.css" rel="stylesheet" type="text/css" />
+    <link href="../css/base_right.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.min.js" ></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/SimpleTree.js"></script>
+    <script type="text/javascript"src="../js/f_cascade.js"  ></script>
+    <script type="text/javascript" src="../js/f_index.js"></script> 
+    <script type="text/javascript">
+    //获取登录辅导员的信息
+	$(document).ready(function(){
+		$.get("../teacherInfo/findTeacher.do",function(data){
+			var tec_name=data.name;
+			$('.name').append(tec_name);
+		});
+	});
+	//头部时间
+	function current(){
+		var d=new Date(),str='';
+		str +=d.getFullYear()+'年'; //获取当前年份
+		str +=d.getMonth()+1+'月'; //获取当前月份（0——11）
+		str +=d.getDate()+'日';
+		/*str +=d.getHours()+'时';
+		str +=d.getMinutes()+'分';
+		str +=d.getSeconds()+'秒';*/
+		return str; }
+		setInterval(function(){$("#nowTime").html(current)},1000);
+		//树形控件判断是否含有叶子节点
+		$(function(){
+			$(".st_tree").SimpleTree({
+				click:function(a){
+					if(!$(a).attr("hasChild"))//attr() 方法设置或返回被选元素的属性值,即判断是否有孩子
+						alert($(a).attr("ref"));
+				}
+			});
+		});
+		
+</script>
+</head>
+<body>
+<div id="container">
+  	<div id="top">
+         <div id="top_left">宿舍管理系统</div>
+         <div id="top_right" style="color:#FFF">
+            <p>欢迎您，<span style="color:#FFBF55;font-weight: bolder;">辅导员</span>
+               <span class="space">|</span>
+			   <a href="../logOut.do" style="color:#FFF;">退出</a></p>
+            <div id="nowTime"></div> 
+          </div>
+          <div class="line"></div>
+    </div>
+	<div id="base">
+    	<div id="base_left">
+          	<div class="st_tree">
+                <ul>
+                    <li><a href="#" >信息管理</a></li>
+                    <ul class="stu" show="true">
+                        <li><a href="#">修改个人信息</a></li>  
+                        <li><a href="#">查询学生信息</a></li>  
+                    </ul>
+                    <li><a href="#">住宿管理</a></li>
+                    <ul class="stuqin">
+                       <li><a href="#">查看学生住宿调配</a></li>
+                       <li><a href="#">调整学生住宿调配</a></li>
+                    </ul>
+                    <li><a href="#">班级信息</a></li>
+                    <ul class="classes">
+                        <li><a href="#">查看负责班级信息</a></li>
+                        <li><a href="#">增加负责班级信息</a></li>
+                    </ul>
+                </ul>
+            </div>
+		</div>
+        <div id="base_right">
+           <h2 style="float:left;margin-left:150px;margin-top:150px;color:#2A3F55">
+               <span style="color:#FF9F00"class="name"></span>老师您好，欢迎来到辅导员管理界面!!!
+           </h2>
+       </div>
+    </div>
+	<div id="foot">
+        <div id="footer_text1"><p>重庆邮电大学&nbsp;信管工作室&nbsp;版权所有&nbsp;2014</p></div>
+        <div id="footer_text2"><p>Version&nbsp;1.0&nbsp;&nbsp;Designed&nbsp;By&nbsp;L</p></div>
+    </div>
+  </div>
+</body>
+</html>

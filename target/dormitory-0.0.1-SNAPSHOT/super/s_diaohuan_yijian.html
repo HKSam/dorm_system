@@ -1,0 +1,141 @@
+<script type="text/javascript" src="../js/s_fenpei_right.js"></script>
+<!-- <div class="tb"> 
+  tool bar 
+  <span>
+      <a href="javascript:void(0)" class="add agree">同意</a> 
+      <a href="javascript:void(0)" class="noagree">不同意</a> 
+      <a href="javascript:void(0)" class="delete">删除</a>
+  </span> 
+ </div> -->
+<!--得到调换结果名单-->
+<div class="table_two"></div>
+<script type="text/javascript">
+	/* $('.tb a:eq(0)').linkbutton({});
+	$('.tb a:eq(1)').linkbutton({});
+	$('.tb a:eq(2)').linkbutton({}); */
+	var delRowsIdArray=[];
+	$('.table_two').datagrid(
+		{
+			width : '750px',
+			height : '330px',
+			toolbar :[
+			{
+				id:'agree',
+				text:'同意',
+				handler:agree
+			},
+			{
+				id:'agree',
+				text:'不同意',
+				handler:noagree	
+			}],
+			nowrap : false,
+			url : '/dormitory/excel/findAllExcel.do',
+			pagination:true,
+			columns : [ [
+					{field : 'ck',align : 'center',checkbox : true},
+					{field:'tecNum',title:'教师号',width: 100,align:'center',
+						formatter:function(value,row){
+					        return row.submitTeacher.tecNum;
+					    }
+					},
+					{field : 'teaname',title : '姓名',width : 100,align : 'center',
+						formatter:function(value,row){
+					        return row.submitTeacher.name;
+					    }
+					},
+					{field : 'academy',title : '学院',width : 200,align : 'center',
+						formatter:function(value,row){
+					        return row.submitTeacher.academy.name;
+					    }
+					},
+					{field : 'name',title : '下载',width : 60,align : 'center',
+						formatter : function(value, row, index) {
+							var d = '<a href='+'../'+row.path+' class="xiazai" >下载</a>';
+							return d;
+						}
+					},
+					{field : 'status',title : '审核',width : 100,align : 'center',
+						formatter : function(value, row, index) {
+							var status="";
+							if(row.status==1)
+								status="待审核";
+							return status;
+						}
+					},
+					{field : 'id',title : 'excelId',width : 0}
+					] ],
+					onLoadError:function(){
+					$.messager.alert("提示","载入远程数据出错！请刷新重试!","warning");
+				},
+				onLoadSuccess:function(data){
+					if(data.rows.length==0){
+						$.messager.alert("提示","没有符合条件的数据!","warning");
+					}
+				},
+		});
+	$(".table_two").datagrid('hideColumn', 'id');
+	//点击下载
+	function yijianDownLoad(index){
+		$.messager.confirm('确认', '确认下载?', function(row) {
+			if (row) {
+				if ($('.table_two').datagrid('getSelected')) {//当勾选了本行时，否则就是直接点击删除
+					var rows = $('.table_two').datagrid('getSelected');//获取你选择的行
+					/* $.post('excel/findAllExcel.do', {"teaNum" : row.teaNum});//选中行   */
+				}
+			}
+		});
+	}
+	//同意，同时要删除那一行
+	function agree() {
+		var rows = $('.table_two').datagrid("getSelections"); //获取你选择的所有行
+		if (rows.length > 0) {
+			$.messager.confirm('提示', '确认后将无法修改，您确定要“同意”通过审核吗? ', function(r) {
+				if (r) {
+					delRowsIdArray=[];
+					for ( var i = 0; i < rows.length; i++) {//循环所选的行
+						delRowsIdArray[i]=rows[i].id;
+					}
+					$.post('/dormitory/excel/approved.do',{"delRowsIdArray":delRowsIdArray},function(data){
+								if(data.status=="1"){
+									for ( var i = 0; i < rows.length; i++) {
+										var index=$('.table_two').datagrid('getRowIndex', rows[i]);
+										$('.table_two').datagrid('deleteRow', index);
+									}
+									$.messager.alert("提示","同意操作成功！");
+								}else{
+									$.messager.alert("提示","操作失败请重试！原因："+data.info);
+								}
+						});
+				}
+			});
+		}
+	}
+	
+	//不同意
+	function noagree() {
+		var rows = $('.table_two').datagrid("getSelections"); //获取你选择的所有行
+		if (rows.length > 0) {
+			$.messager.confirm('提示', '确认后将无法修改，您确定“不同意”通过审核吗? ', function(r) {
+				if (r) {
+					delRowsIdArray=[];
+					for ( var i = 0; i < rows.length; i++) {//循环所选的行
+						delRowsIdArray[i]=rows[i].id;
+					}
+					$.post('/dormitory/excel/approved.do',{"delRowsIdArray":delRowsIdArray},function(data){
+								if(data.status=="1"){
+									for ( var i = 0; i < rows.length; i++) {
+										var index=$('.table_two').datagrid('getRowIndex', rows[i]);
+										$('.table_two').datagrid('deleteRow', index);
+									}
+									$.messager.alert("提示","不同意操作成功！");
+								}else{
+									$.messager.alert("提示","操作失败请重试！原因："+data.info);
+								}
+						});
+				}
+			});
+		}
+	}
+	
+</script>

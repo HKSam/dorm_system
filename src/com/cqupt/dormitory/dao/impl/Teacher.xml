@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.Teacher">
+	<!-- 结果集 teacherResult 不包含教师密码 -->
+	<resultMap type="com.cqupt.dormitory.model.Teacher" id="teacherResult">
+		<id property="id" column="tec_id"/>
+		<result property="sex" column="tec_sex"/>
+		<result property="tecNum" column="tec_num"/>
+		<result property="name" column="tec_name"/>
+		<result property="phone" column="tec_phone"/>
+		
+		<association property="academy" column="academy_id" resultMap="com.cqupt.dormitory.model.Academy.academyResult"></association>
+	</resultMap>
+	
+	<!-- 结果集 teacherResult 完整教师信息 -->
+	<resultMap type="com.cqupt.dormitory.model.Teacher" id="teacherResultFull">
+		<id property="id" column="tec_id"/>
+		<result property="sex" column="tec_sex"/>
+		<result property="tecNum" column="tec_num"/>
+		<result property="password" column="password"/>
+		<result property="name" column="tec_name"/>
+		<result property="phone" column="tec_phone"/>
+		
+		<association property="academy" column="academy_id" resultMap="com.cqupt.dormitory.model.Academy.academyResult"></association>
+	</resultMap>
+	
+	<!-- 添加教师信息 -->
+	<insert id="addTeacher" parameterType="com.cqupt.dormitory.model.Teacher">
+		INSERT INTO `teacher` (
+			`tec_num`, `tec_name`, `tec_sex`, `tec_phone`, `academy_id`, `password`
+		) VALUES (
+			#{tecNum}, #{name}, #{sex}, #{phone}, #{academy.id,jdbcType=INTEGER}, '123'
+		)
+	</insert>
+	
+	<!-- 根据教师名字和学院id查找教师 -->
+	<select id="findTeacherByNameAndAcademyId" parameterType="map" resultMap="teacherResult" statementType="STATEMENT">
+		SELECT * FROM `teacher` t
+			LEFT JOIN `academy` a ON t.`academy_id`=a.`academy_id`
+			WHERE t.`tec_name`= '${name}' AND t.`academy_id`=${academyId}
+	</select>
+
+	<!-- 根据教师名字和密码查找教师 -->
+	<select id="findTeacherByNumAndPw" parameterType="com.cqupt.dormitory.model.Teacher" resultMap="teacherResultFull">
+		SELECT * FROM `teacher` t
+			LEFT JOIN `academy` a ON t.`academy_id`=a.`academy_id` 
+			WHERE t.`tec_num`=#{tecNum} AND t.`password`=#{password}
+	</select>
+	
+	<!-- 根据教工号查找教师信息 -->
+	<select id="findTeacherByTecNum" parameterType="String" resultMap="teacherResultFull">
+		SELECT * FROM `teacher` t
+			LEFT JOIN `academy` a ON t.`academy_id`=a.`academy_id`
+			WHERE t.`tec_num` = #{tecNum}
+	</select>
+	
+	<!-- 更新教师信息 -->
+	<update id="updateTeacherInfo" parameterType="com.cqupt.dormitory.model.Teacher">
+		UPDATE `teacher` 
+		<set>
+			<if test="sex!=null">`tec_sex` = #{sex}</if>
+			<if test="phone!=null">, `tec_phone` = #{phone}</if>
+			<if test="name!=null">, `tec_name` = #{name}</if>
+			<if test="password">, `password` = #{password}</if>		
+		</set> 
+			WHERE `tec_num` = #{tecNum}
+	</update>
+	
+	<!-- 根据教师id查找所管理的专业 -->
+	<select id="findMajorByTecId" parameterType="Integer" resultType="String">
+		SELECT DISTINCT(major) FROM `student` 
+			WHERE `tec_id` = #{tecId}
+	</select>
+	
+	<!-- 根据班级代号加载教师信息 -->
+	<select id="findTeacherByClassNum" parameterType="String" resultMap="teacherResult">
+		SELECT * FROM `teacher` t 
+			LEFT JOIN `academy` a ON t.`academy_id`=a.`academy_id` 
+			WHERE t.`tec_id` IN(SELECT tec_id FROM `student` s WHERE s.`class`= #{classNum})
+	</select>
+	
+	<!-- 根据学院查找教师 -->
+	<select id="findTeacherByAcademy" parameterType="Integer" resultMap="teacherResult" statementType="STATEMENT">
+		SELECT * FROM `teacher` t
+		LEFT JOIN `academy` a ON t.`academy_id`=a.`academy_id`
+			<if test="_parameter!=0">
+				WHERE t.`academy_id` = ${_parameter}
+			</if>
+	</select>
+	
+	<!-- 根据教工号删除教师信息 -->
+	<delete id="deleteTeacherByTecNum" parameterType="list">
+		DELETE FROM `teacher` t
+			WHERE t.`tec_num` IN (
+			<foreach collection="list" item="l" separator=",">
+				#{l}
+			</foreach>
+			)
+	</delete>
+	
+</mapper>

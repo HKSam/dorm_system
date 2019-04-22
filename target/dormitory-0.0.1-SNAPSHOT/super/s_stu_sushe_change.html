@@ -1,0 +1,145 @@
+<style type="text/css">
+.stuInfo h3 span {
+	margin-right:15px;
+	margin-left:10px;
+	color:#69F;
+}
+ select {
+	width:260px;
+	margin-right:20px;
+	margin-bottom:30px;
+}
+</style>
+<div class="right_top btm">
+  <div class="rheader"><span class="pageName"><b>寝室调换</b></span><span class="shuoming">您可以对选中的学生调换寝室</span><span class="fanhui"><a class="return" href="javascript:void(0)">返回»</a></span></div>
+</div>
+<div class="right_contain">
+  <div class="stuInfo">
+    <h3>您将要调换的学生学号：<span name="stuNum"></span>姓名:<span name="name"></span>性别:<span name="sex"></span></h3>
+  </div>
+  <form >
+    片区:<select class="area">
+    	
+    </select>
+   楼栋 :<select class="building">
+    	
+    </select>
+    <input type="button" value="查询" />
+  </form>
+  <div class="empty"> </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.return').click(function(){
+	 $("#base_right").empty().load("s_ruzhu_xinxi.html");
+	})
+	$('.stuInfo span[name="stuNum"]').append(stuNum);
+	$('.stuInfo span[name="name"]').append(stuName);
+	$('.stuInfo span[name="sex"]').append(stuSex);
+	
+	$.post("../areaInfo/findAllArea.do",{"sex":stuSex},function(data){
+		var area="<option value='-1'>请选择</option>";
+		$.each(data,function(index,item){
+			 area+="<option value="+item+">"+item+"</option>";
+		});
+		$('.area').append(area);		
+	});//post end
+});//$(function() end
+	
+	$('.area').change(function(){
+		var area=$('select option:selected').val();
+		if(area!='-1'){
+			$('.building').empty();
+			$.post("../areaInfo/findBuildingNumBySex.do",{"area":area,"sex":stuSex},function(data){
+				if(data.length==0){
+					$.messager.alert("提示","您所选的片区没有"+stuSex+"生寝室,请重新选择片区","warning");
+				}else{
+						var buildingid="<option value='-1'>请选择</option>";
+						$.each(data,function(index,item){
+							buildingid+="<option value="+item+">"+item+"</option>";
+						});
+						$('.building').append(buildingid);
+					}
+		    });	
+		}	
+	});
+	$('input[type="button"]').click(function(){
+		var area=$('.area').val();
+		var name=$('.building').val();
+		if(name!='-1' && area!='-1'){
+			$.post("../roomInfo/findAllRoom.do",{"buildingNum":name},function(data){
+				var options={
+					data:data,
+					width:'1000px',
+					height:'400px',				
+					singleSelect:false,
+					checkOnSelect:true,
+					selectOnCheck: true,
+					/* pagination:true	, */
+					nowrap:false,
+					/* pageNumber:1,
+					pageSize:5,
+					pageList:[3,5,7], */
+					onLoadSuccess:function(data){
+						/* alert(data.rows.length); */
+							if(data.rows.length==0){
+								$.messager.alert("提示","没有符合条件的数据","warning");
+							}
+						},
+					onLoadError:function(){
+						$.messager.alert("error","远程加载数据出错","warning");
+					},
+					onClickCell:function(rowIndex, field, value){
+						if(value){
+							var per_susheid=susheid;
+							susheid=value.substring(0,6);
+							if(susheid.indexOf("层")>=0){}
+							else{
+								var str="确定将"+stuName+"同学调换到"+susheid+"寝吗？";
+								$.messager.confirm('提示',str,function(r){
+									if (r){
+										$.post('../roomInfo/updateStudentRoom.do',{"studentNum":stuNum,"roomNum":susheid},function(data){
+											if(data.status==0){//失败
+												$.messager.alert("提示","调换失败，请重新操作","info");
+											}else if(data.status==1){
+												$.messager.alert("提示","操作成功","info");
+											    susheid=per_susheid;
+												$("#base_right").empty().load("s_ruzhu_xinxi.html");
+											}else{
+												$.messager.alert("提示","出现错误","info");
+											}
+										});
+									
+									}
+								});				
+						   }
+						}
+						
+					}//onClickCell end
+					
+				}//option end
+				var s="[[";
+		s+="{field:'item1',title:'楼层',width:50,align:'center',rowspan:2},";
+		s+="{title:'寝室号',align:'center',colspan:"+data.columnMax+"}],[";
+		for(i=2;i<data.columnMax;i++){
+			s+="{field:'item" +i+"',title:'"+(i-1)+"',width:'50',align:'center',styler:cellStyler},";
+		}
+		s+="{field:'item" +data.columnMax+"',title:'"+(data.columnMax-1)+"',align:'center',styler:cellStyler}]]";
+				options.columns=eval(s);
+				$('.empty').datagrid(options);
+				$('.empty').datagrid('reload');
+			});//post end
+		}else{
+			$.messager.alert("提示","请选择片区和楼栋","info");
+			}
+	});		
+	
+	function cellStyler(value,row,index){
+	  if(value){
+		  if (value[11]< value[13]){
+			  return 'color:#666;cursor:pointer';
+		  }
+	  }
+
+	}
+</script>

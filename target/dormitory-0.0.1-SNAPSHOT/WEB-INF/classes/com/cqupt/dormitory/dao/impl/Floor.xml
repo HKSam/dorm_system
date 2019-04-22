@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.Floor">
+	<resultMap type="com.cqupt.dormitory.model.Floor" id="floorResult">
+		<id property="id" column="floor_id"/>
+		<result property="floorNum" column="floor_Num"/>
+		<association property="building" column="building_id" resultMap="com.cqupt.dormitory.model.Building.buildingResult"/>
+	</resultMap>
+
+	<select id="findAllFloor" resultMap="floorResult">
+		SELECT * FROM `floor` 
+	</select>
+
+	<!-- 根据楼栋的名称来寻找楼栋下面的所有楼层对象 -->
+	<select id="find_floor_by_buildingnum"  parameterType="string" resultType="com.cqupt.dormitory.model.Floor">
+		SELECT floor_id as id,floor_num as floorNum FROM FLOOR LEFT JOIN building  ON(floor.`building_id` = building.`building_id`) WHERE building.`building_num`=#{buildingNum}
+	</select>
+	
+	<select id="find_floorid" parameterType="map" resultType="int">
+		SELECT floor.`floor_id` FROM FLOOR LEFT JOIN building ON(building.`building_id`=floor.`building_id`) WHERE floor.`floor_num`=#{fn} AND building.`building_num`=#{bn}
+	</select>
+	
+	<delete id="del_floor" parameterType="int">
+		DELETE FROM  `floor` WHERE floor_id=#{floorId}
+	</delete>
+	
+	<select id="find_floor_people" parameterType="int" resultType="int">
+		SELECT 
+		COUNT(student.`stu_id`) 
+		FROM student 
+		RIGHT JOIN (SELECT room_id FROM room LEFT JOIN FLOOR ON(floor.`floor_id` = room.`floor_id`) WHERE floor.`floor_id` = #{floorId}) f 
+		ON(student.`room_id` = f.room_id) 
+	</select>
+	
+	<select id="find_floor_by_floornum_buildingnum" parameterType="map" resultMap="floorResult">
+		SELECT * FROM FLOOR LEFT JOIN building ON floor.`building_id` = building.`building_id`
+		WHERE floor.`floor_num`=#{floorNum} AND building.`building_num`=#{buildingNum}
+	</select>
+	
+	<insert id="add" parameterType="com.cqupt.dormitory.model.Floor">
+		INSERT INTO  `floor` (`floor_num`, `building_id`) VALUES (#{floorNum}, #{building.id})
+	</insert>
+	
+</mapper>

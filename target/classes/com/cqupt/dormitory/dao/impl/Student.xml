@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.Student">
+	<!-- 结果集 studentResult -->
+	<resultMap type="com.cqupt.dormitory.model.Student" id="studentResult">
+		<id property="id" column="stu_id"/>
+		<result property="sex" column="stu_sex"/>
+		<result property="liveStatus" column="live_status"/>
+		<result property="grade" column="grade"/>
+		<result property="classNum" column="class"/>
+		<result property="major" column="major"/>
+		<result property="stuNum" column="stu_num"/>
+		<result property="name" column="stu_name"/>
+		<result property="birthplace" column="birthplace"/>
+		<result property="nation" column="nation"/>
+		<result property="identity" column="identity"/>
+		<result property="phone" column="stu_phone"/>
+		<result property="outAddress" column="out_address"/>
+		<result property="birth" column="birth"/>
+		<result property="inTime" column="in_time"/>
+		<result property="outTime" column="out_time"/>
+		<result property="education" column="education"/>
+		<result property="oldRoomNum" column="old_roomnum"/>
+		
+		<association property="academy" column="academy_id" resultMap="com.cqupt.dormitory.model.Academy.academyResult"></association>
+		<association property="teacher" column="tec_id" resultMap="com.cqupt.dormitory.model.Teacher.teacherResult"></association>
+		<association property="room" column="room_id" resultMap="com.cqupt.dormitory.model.Room.roomResult"></association>
+	</resultMap>
+	
+	<!-- 结果集classAndMajorResult -->
+	<resultMap type="com.cqupt.dormitory.vo.ClassAndMajor" id="classAndMajorResult">
+		<result property="classNum" column="class"/>
+		<result property="academyId" column="academy_id"/>
+		<result property="academyName" column="academy_name"/>
+		<result property="education" column="education"/>
+		<result property="major" column="major"/>
+	</resultMap>
+	
+	<!-- 所有字段(不包含逻辑主键) -->
+	<sql id="fields">
+		`academy_id`, `grade`, `class`, 
+	 	`major`, `stu_num`, `stu_sex`, 
+	 	`stu_name`, `birth`, `birthplace`, 
+	 	`nation`, `identity`, `stu_phone`, 
+	 	`in_time`, `tec_id`, `room_id`, 
+	 	`out_time`, `out_address`, `live_status`,
+	 	`education`
+	</sql>
+	
+	<!-- 所有字段的值(不包含逻辑主键) 要求parameterType必须为Student -->
+	<sql id="fieldsValue">
+		#{academy.id,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{classNum,jdbcType=VARCHAR}, 
+		#{major,jdbcType=VARCHAR}, #{stuNum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+		#{name,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{birthplace,jdbcType=VARCHAR}, 
+		#{nation,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+		#{inTime,jdbcType=DATE}, #{teacher.tecNum,jdbcType=VARCHAR}, #{room.roomNum,jdbcType=VARCHAR}, 
+		#{outTime,jdbcType=DATE}, #{outAddress,jdbcType=VARCHAR}, #{liveStatus,jdbcType=INTEGER},
+		#{education,jdbcType=VARCHAR}
+	</sql>
+	
+	<!-- 添加学生 -->
+	<insert id="addStudent" parameterType="com.cqupt.dormitory.model.Student" useGeneratedKeys="true">
+			INSERT INTO `student` (
+				<include refid="fields"/>
+			) VALUES (
+				<include refid="fieldsValue"/>
+			);
+	</insert>
+	
+	<!-- 根据条件查找学生集合 -->
+	<select id="findStudentByFactor" parameterType="list" resultMap="studentResult" statementType="STATEMENT">
+		SELECT * FROM `student` s
+			LEFT JOIN `academy` a ON s.`academy_id`=a.`academy_id`
+			LEFT JOIN `teacher` t ON s.`tec_id`=t.`tec_id`
+			LEFT JOIN `room` r ON s.`room_id`=r.`room_id`
+			<where>
+				<foreach collection="list" item="f" separator=" AND ">
+					s.${f.name} = '${f.value}'
+				</foreach>
+			</where>
+	</select>
+	
+	<!-- 根据条件查找学生 （排序字段为academy 和 class） -->
+	<select id="findStudentOrdered" parameterType="com.cqupt.dormitory.vo.Condition" resultMap="studentResult" statementType="STATEMENT">
+		SELECT * FROM `student` s
+			LEFT JOIN `academy` a ON s.`academy_id`=a.`academy_id`
+			LEFT JOIN `teacher` t ON s.`tec_id`=t.`tec_id`
+			<where>
+				s.`live_status` = 2
+				<if test="academy!=null and academy!=''">AND s.`academy_id` = ${academy}</if>
+				<if test="education!=null and education!=''">AND s.`education` = '${education}'</if>
+				<if test="major!=null and major!=''">AND s.`major` = '${major}'</if>
+				<if test="grade!=null and grade!=''">AND s.`grade` = '${grade}'</if>
+				<if test="sex!=null and sex!=''">AND s.`stu_sex` = '${sex}'</if>
+			</where>
+			ORDER BY s.`academy_id`,s.`class`
+	</select>
+	
+	<!-- 更新学生信息 -->
+	<update id="updateStudent" parameterType="com.cqupt.dormitory.model.Student">
+		UPDATE `student` SET 
+			`academy_id`=#{academy.id}, `grade`=#{grade}, `class`=#{classNum}, 
+		 	`major`=#{major}, `stu_num`=#{stuNum}, `stu_sex`=#{sex}, 
+		 	`stu_name`=#{name}, `birth`=#{birth}, `birthplace`=#{birthplace}, 
+		 	`nation`=#{nation}, `identity`=#{identity}, `stu_phone`=#{phone}, 
+		 	`in_time`=#{inTime}, `tec_id`=#{teacher.id}, `room_id`=#{room.id}, 
+		 	`out_time`=#{outTime}, `out_address`=#{outAddress}, `live_status`=#{liveStatus},
+		 	`education`=#{education}
+		WHERE `stu_num`=#{stuNum}
+	</update>
+	
+	<!-- 删除学生信息 -->
+	<delete id="deleteStudentByStuId" parameterType="list">
+		DELETE FROM `student` WHERE `stu_num` IN (
+			<foreach collection="list" item="l" separator=",">
+				#{l}
+			</foreach>
+		)
+	</delete>
+	
+	<!-- 查询班级、专业、学院信息 -->
+	<select id="findClassAndMajor" resultMap="classAndMajorResult">
+		SELECT DISTINCT(s.`class`),s.`academy_id`, a.`academy_name`, s.`education`, s.`major`
+			FROM `student` s,`academy` a
+			WHERE s.academy_id = a.academy_id 
+			ORDER BY 2,5
+	</select>
+	
+	<!-- 查询级联信息 -->
+	<select id="findCascadingInfo" parameterType="com.cqupt.dormitory.vo.Condition" resultType="String" statementType="STATEMENT">
+		SELECT DISTINCT(
+		<if test="target=='academy'">academy_id</if>
+		<if test="target=='classNum'">class</if>
+		<if test="target!='academy' and target!='classNum'">${target}</if>
+		) FROM `student` s
+			<where>
+				<if test="academy!=null and academy!=''">s.`academy_id` = ${academy}</if>
+				<if test="education!=null and education!=''">AND s.`education` = '${education}'</if>
+				<if test="major!=null and major!=''">AND s.`major` = '${major}'</if>
+				<if test="grade!=null and grade!=''">AND s.`grade` = '${grade}'</if>
+				<if test="sex!=null and sex!=''">AND s.`stu_sex` = '${sex}'</if>
+			</where>
+	</select>
+	
+	<!-- 校验指定学号的信息是否存在 -->
+	<select id="stuNumIsExist" parameterType="String" resultMap="studentResult">
+		SELECT * FROM `student` WHERE `stu_num` = #{stuNum}
+	</select>
+	
+	<!-- 根据学号和姓名查找学生 -->
+	<select id="findStudentByStuNumAndName" parameterType="map" resultMap="studentResult">
+		SELECT * FROM `student` WHERE `stu_num` = #{stuNum} AND `stu_name` = #{name}
+	</select>
+	
+	<!-- 根据条件查找学生 -->
+	<select id="findStudentByCondition" parameterType="com.cqupt.dormitory.vo.Condition" resultMap="studentResult" statementType="STATEMENT" >
+		SELECT * FROM `student` s
+			LEFT JOIN `academy` a ON s.`academy_id`=a.`academy_id`
+			LEFT JOIN `teacher` t ON s.`tec_id`=t.`tec_id`
+			LEFT JOIN `room` r ON s.`room_id`=r.`room_id`
+			<where>
+				<if test="livingStatus!=0">s.`live_status` = ${livingStatus}</if>
+				<if test="academy!=null and academy!=''">AND s.`academy_id` = ${academy}</if>
+				<if test="education!=null and education!=''">AND s.`education` = '${education}'</if>
+				<if test="major!=null and major!=''">AND s.`major` = '${major}'</if>
+				<if test="grade!=null and grade!=''">AND s.`grade` = '${grade}'</if>
+				<if test="sex!=null and sex!=''">AND s.`stu_sex` = '${sex}'</if>
+				<if test="classNum!=null and classNum!=''">AND s.`class` = '${classNum}'</if>
+				<if test="buildingNum!=null and buildingNum!=''">AND r.`room_num` = '${buildingNum}%'</if>
+			</where>
+	</select>
+	
+	<update id="update_out_of_room" parameterType="map">
+		UPDATE `student` SET `room_id` = NULL ,`live_status` = '1' WHERE student.`stu_num` IN
+		<foreach item="item" index="index" collection="studentNum"  open="(" separator="," close=")">
+	                   #{item}
+	    </foreach>
+	</update>
+	
+	<!-- 改变学生的住宿状态 -->
+	<update id="changeLivingStatus" parameterType="map" statementType="STATEMENT">
+		UPDATE `student`
+		<set>
+			`live_status` = ${status}
+			<if test="status=1">, `in_time` = NULL, `room_id` = NULL</if>
+			<if test="status=2">, `out_time` = NULL, `out_address` = NULL</if> 
+		</set>
+			WHERE `stu_num` IN (
+			<foreach collection="nums" item="i" separator=",">
+				${i}
+			</foreach>
+			)
+	</update>
+	
+	<!-- 添加校外住宿的学生 -->
+	<update id="addStudentOutLiving" parameterType="com.cqupt.dormitory.model.Student">
+		UPDATE `student` 
+		<set>
+			`live_status` = 2, `in_time` = NULL, `room_id` = NULL  
+			<if test="outTime!=null and outTime!=''">, `out_time` = #{outTime,jdbcType=DATE}</if>
+			<if test="outAddress!=null and outAddress!=''">, `out_address` = #{outAddress}</if>
+		</set>
+			WHERE `stu_num` = #{stuNum}
+	</update>
+	
+	<!-- 查找已进行住宿分配的学生 -->
+	<select id="findStudentDeploy" parameterType="String" resultMap="studentResult" statementType="STATEMENT">
+		SELECT * FROM `student` s
+			LEFT JOIN `academy` a ON s.`academy_id`=a.`academy_id`
+			LEFT JOIN `teacher` t ON s.`tec_id`=t.`tec_id`
+			LEFT JOIN `room` r ON s.`room_id`=r.`room_id`
+			WHERE s.`room_id` IS NOT NULL AND s.`old_roomNum` IS NOT NULL 
+				AND s.`live_status` = 4 AND t.`tec_num` = '${_parameter}'
+	</select>
+	
+	<!-- 根据学号数组查找学生 -->
+	<select id="findStudentByNumArray" parameterType="list" resultMap="studentResult" statementType="STATEMENT">
+		SELECT * FROM `student` s
+			LEFT JOIN `academy` a ON s.`academy_id`=a.`academy_id`
+			LEFT JOIN `teacher` t ON s.`tec_id`=t.`tec_id`
+			LEFT JOIN `room` r ON s.`room_id`=r.`room_id`
+			WHERE s.`stu_num` IN (
+			<foreach collection="list" item="i" separator=",">
+				'${i}'
+			</foreach>
+			)
+	</select>
+		
+</mapper>

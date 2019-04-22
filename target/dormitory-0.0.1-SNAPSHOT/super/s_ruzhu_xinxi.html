@@ -1,0 +1,285 @@
+<style type="text/css">
+input[type='submit'], input[type='botton'] {
+	margin-left:20px;
+}
+.add input[type='text'] {
+	margin-right:30px;
+	border:#CCC solid 1px;
+	border-radius: 5px;
+}
+.add {
+	margin-bottom:5px;
+	
+}
+.check {
+	color:#F00;
+	font-size:14px;
+	margin-left:8px;
+}
+#modify_sushe {
+	margin-top:30px;
+	margin-left:30px;
+	display:none;
+}
+.error{
+	height:20px;
+	weight:30px;
+	color:#F00;
+	font-size:12px;
+	margin-left:50px;
+	}
+</style>
+<div class="right_top btm">
+  <div class="rheader"><span class="pageName"><b>修改入住信息</b></span><span class="shuoming">您可以查看和修改入住信息</span><span class="fanhui"><a class="return"href="javascript:void(0)">返回»</a></span></div>
+</div>
+<div class="right_contain">
+  <div class="add">
+    <h4>添加入住学生</h4>
+    <form class="add" id="abc">
+      学号:
+      <input type="text" name="stuNum"  />
+      姓名:
+      <input type="text" name="name" readonly="readonly" />
+      <input type="hidden" name="room" value=""/>
+      <input type="button"  value="确定" />
+      <input type="reset"  value="重置" />
+    </form>
+  </div>
+<div id="dgl3" >
+ <form id="modify_sushe">
+      <p><b></b></p>
+      寝室类型:
+      <input type="text" name="cata"  class="sushe_cata"/>
+      人间<span class="check"></span><br />
+      <br />
+      寝室资费:
+      <input type="text" name="fee" class="sushe_fee"/>
+      元/年<span class="check" ></span><br />
+      <br />
+  </form>   
+ </div>
+ <!--  <div id="tb"> <span> <a href="javascript:void(0)" class="modify">修改寝室信息</a>&nbsp; <a href="javascript:void(0)" class="delete">删除寝室</a>&nbsp; </span> </div> -->
+  <div id="student"></div>
+</div>
+<script type="text/javascript">
+var ok_1=false;
+var ok_c=false;
+var ok_f=false;
+var url="";
+var param={};
+var info="";
+$('.return').click(function(){
+	 $("#base_right").empty().load("s_sushe_xinxi.html");
+	})
+$(function(){
+		$('.add input[type="hidden"]').attr('value',susheid);
+	});
+	$('input[type="text"]').focus(function(){
+		if(person==contains){
+			$('input[name="stuNum"]').attr("disabled","disabled");	
+			$('input[name="name"]').attr("disabled","disabled");	
+			$.messager.alert("提示","该宿舍床位已满，不能添加学生","info");
+			}
+		});
+	//datagrid start
+	$.post("../roomInfo/findAllPersonInRoom.do",{"roomNum":susheid},function(data){
+		person=data.total;
+		$('#student').datagrid({
+			data:data,
+			width:'930px',
+			title:susheid+'号寝室入住情况',
+			height:'250px',
+			nowrap:false, 
+			striped:true,
+			/* fitColumns:true, */ 
+			toolbar:[{
+				id:'add',
+				text:'修改宿舍信息',
+				iconCls:'icon-edit',
+				handler:modify		
+			},
+			{
+				id:'delete',
+				text:'删除寝室',
+				iconCls:'icon-remove',
+				handler:deleteRows
+			}],
+			columns:[[    
+			    {field:'room',title:'寝室号',width: 100,align:'center',
+					formatter:function(value,row){
+				        return row.room.roomNum;
+				    }
+					
+				},
+				{field:'name',title:'姓名',width:100,align:'center'} ,
+				{field:'sex',title:'性别',width:60,align:'center'}, 
+				{field:'stuNum',title:'学号',width:100,align:'center'},
+				{field:'academy',title:'学院',width: 160,align:'center',
+					formatter:function(value,row){
+				        return row.academy.name;
+				    }
+					
+				},
+				{field:'major',title:'专业',width:160,align:'center'},    
+				{field:'classNum',title:'班级',width:100,align:'center'},
+				{field:'delete',width:60,align:'center',
+					formatter:function(value,row,index){
+					  var d = '<a href="javascript:void(0)" class="easyui-linkbutton" onclick="deleterow(this)">退宿</a>';
+							return d;
+						}
+				},
+				{field:'modify',width:80,align:'center',
+						formatter:function(value,row,index){
+							var m = '<a href="javascript:void(0)" onclick="change(this)">调换寝室</a>';
+							return m;
+						}
+				}
+				 
+			]],
+		singleSelect:true,
+		onLoadSuccess:function(data){
+			/* if(data.rows.length==0){
+				$.messager.alert("提示","没有符合条件的数据，请重新选择筛选条件","warning");
+			} */
+		},
+		onLoadError:function(){
+			$.messager.alert("error","远程加载数据出错","warning");
+		}
+	
+		});//datagrid end
+	});
+		var pager = $('#student').datagrid().datagrid('getPager');// get the pager of datagrid
+	    pager.pagination({
+		beforePageText:"第",
+		afterPageText:"共{pages}页",
+		displayMsg:"显示{from}到{to},共{total}条记录"
+});
+		$('input[name="stuNum"]').focusout(function(){
+			var stuNum=$('input[name="stuNum"]').val();
+			if(stuNum!=''){
+	
+				$.post("../studentInfo/findStudentByStuNum.do",{"stuNum":stuNum},function(data){
+					if(data!=null){//有这个学生
+						$('input[name="name"]').attr("value",data.name);
+						ok_1=true;
+					}else {
+						$.messager.alert("提示","没有该学生，请输入正确的学号","info");
+						ok_1=false;
+					}
+				});
+				
+			}
+		});
+			
+		
+		 function getRowIndex(target){//获取要删除行的索引
+			var tr = $(target).closest('tr.datagrid-row');
+			var row = $('#student').datagrid('getSelected');
+			stuNum=row.stuNum;
+			return parseInt(tr.attr('datagrid-row-index'));
+		}
+	   
+	    function deleterow(target){
+			
+			$.messager.confirm('提示','确定退宿么?',function(r){
+				if (r){
+					var index=parseInt(getRowIndex(target));
+					$.post('../studentInfo/updateStudentRoom.do',{"stuNum":stuNum,"roomNum":susheid},function(data){
+						if(data.status==1){
+							$.messager.alert("提示","删除成功","info",function(){
+								$('#student').datagrid('deleteRow',index);
+								person--;
+								$('.add input[type="text"]').removeAttr("disabled");	
+							});
+							}else{
+								$.messager.alert("提示","删除失败","info");					
+							}
+						
+						});
+					
+				}
+			});
+	    }
+		$('input[type="button"]').click(function(){
+			if(ok_1){
+				$.post("../roomInfo/changeOneRoom.do",$('.add').serialize(),function(data){
+					var status=data.status;
+					if(status==1){
+						$.messager.alert("提示","添加成功","info");
+						$('input[type="text"]').attr("value","");
+						$('#base_right').empty().load("s_ruzhu_xinxi.html");
+					}else if(status==0){
+						$.messager.alert("提示","添加失败：该学生性别与该寝室不符或者该寝室已满。","warning");
+						$('input[type="text"]').attr("value","");
+					}else{
+						$.messager.alert("提示","发生错误，请重新输入学号","warning");
+					}
+				});
+			}else{
+				$.messager.alert("提示","请输入正确学号","warning");
+			}
+		});
+		function modify(){
+			  action="修改宿舍";//修改单个宿舍信息
+			  var title="您将要修改的寝室为 "+susheid;
+			  $('#modify_sushe').find('b').html(title);
+			  var form=$('#modify_sushe');
+			  var dgl=$('#dgl3');
+	          showDailog(dgl,form);	
+			}
+		function deleteRows(){
+			if(person==0){
+				$.post("./roomInfo/delRoom.do",{"roomNum":susheid},function(data){
+					if(data.status==1){
+						$.messager.alert("提示","删除成功","info",function(){
+							$("#base_right").empty().load("s_sushe_xinxi.html");
+						});
+						
+					}else if(data.status==0){
+						$.messager.alert("提示","删除失败","info");				
+						}
+				});
+			}else{
+				$.messager.alert("提示","该宿舍目前有学生住宿，不能删除","info");
+				}
+		}
+	   function change(target){
+			var tr = $(target).closest('tr.datagrid-row');
+			var index=parseInt(tr.attr('datagrid-row-index'));
+			$('#student').datagrid('selectRow',index);
+			var tr = $('#student').datagrid('getSelected');
+			stuNum=tr.stuNum;
+			stuName=tr.name;
+			stuSex=tr.sex;
+			$("#base_right").empty().load("s_stu_sushe_change.html");
+			
+        }
+        
+    //校验
+    $('input[name="cata"]').focusout(function(){
+		var s=$(this).val();
+		var reg = /^[0-9]*$/;
+		if(s=='' || !reg.test(s)){
+			var str="请输入数字";
+			$(this).next().html(str);
+			ok_c=false;
+			}else{
+				$(this).next().html("<img src='../images/reg_succ.png' />");
+			/* 	$(this).next().html(""); */
+				ok_c=true;
+			}
+	});	
+	  $('input[name="fee"]').focusout(function(){
+		var s=$(this).val();
+		var reg = /^[0-9]*$/;
+		if(s=='' || !reg.test(s)){
+			var str="请输入数字";
+			$(this).next().html(str);
+			ok_f=false;
+			}else{
+				$(this).next().html("<img src='../images/reg_succ.png' />");
+				ok_f=true;
+			}
+	});	
+	
+</script>

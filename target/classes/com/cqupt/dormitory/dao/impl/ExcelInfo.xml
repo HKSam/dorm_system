@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.ExcelInfo">
+	<resultMap type="com.cqupt.dormitory.model.ExcelInfo" id="excelResult">
+		<id property="id" column="excel_id"/>
+		<result property="name" column="excel_name"/>
+		<result property="path" column="excel_path"/>
+		<result property="status" column="status"/>
+		
+		<association property="approvedAdmin" column="approved_admin_id" resultMap="com.cqupt.dormitory.model.Admin.adminResult"/>
+		<association property="submitTeacher" column="submit_teacher_id" resultMap="com.cqupt.dormitory.model.Teacher.teacherResult"/>
+	</resultMap>
+	
+	<!-- 添加Excel信息 -->
+	<insert id="addExcel" parameterType="com.cqupt.dormitory.model.ExcelInfo">
+		INSERT INTO `excel`(
+			`excel_name`, `excel_path`, `submit_teacher_id`, `approved_admin_id`, `status`
+		) VALUES (
+			#{name}, #{path}, #{submitTeacher.id,jdbcType=INTEGER}, #{approvedAdmin.id,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}
+		)
+	</insert>
+	
+	<!-- 根据id删除excel信息 -->
+	<delete id="deleteExcelById" parameterType="list">
+		DELETE FROM `excel` WHERE `excel_id` IN (
+			<foreach collection="list" item="l" separator=",">
+				#{l,jdbcType=INTEGER}
+			</foreach>
+		)
+	</delete>
+	
+	<!-- 查找所有的Excel信息 -->
+	<select id="findAllExcel" resultMap="excelResult">
+		SELECT * FROM `excel` e
+			LEFT JOIN `teacher` t ON e.`submit_teacher_id` = t.`tec_id`
+			LEFT JOIN `admin` a ON e.`approved_admin_id` = a.`admin_id`
+			LEFT JOIN `academy` ac ON ac.`academy_id` = t.`academy_id`
+			WHERE e.`status` = 1
+	</select>
+	
+	<!-- 根据教工号查找所提交的Excel -->
+	<select id="findExcelByTecNum" parameterType="String" resultMap="excelResult" statementType="STATEMENT">
+		 SELECT * FROM `excel` e
+			LEFT JOIN `teacher` t ON e.`submit_teacher_id` = t.`tec_id`
+			LEFT JOIN `admin` a ON e.`approved_admin_id` = a.`admin_id`
+			LEFT JOIN `academy` ac ON ac.`academy_id` = t.`academy_id`
+			WHERE t.`tec_num` = '${_parameter}'
+	</select>
+	
+	<!-- 改变excel的状态 -->
+	<update id="changeExcelStatus" parameterType="Map" statementType="STATEMENT">
+		UPDATE `excel` 
+			SET `approved_admin_id` = ${adminId},
+				`status` = ${status}
+			WHERE `excel_id` IN (
+			<foreach collection="ids" item="i" separator=",">
+				${i}
+			</foreach>
+			)
+	</update>
+	
+</mapper>

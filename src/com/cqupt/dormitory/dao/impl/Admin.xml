@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.Admin">
+	<!-- 管理员结果集 不包含密码 -->
+	<resultMap type="com.cqupt.dormitory.model.Admin" id="adminResult">
+		<id property="id" column="admin_id"/>
+		<result property="sex" column="admin_sex"/>
+		<result property="adminNum" column="admin_num"/>
+		<result property="name" column="admin_name"/>
+		<result property="post" column="admin_post"/>
+	</resultMap>
+	
+	<!-- 管理员结果集 所有信息 -->
+	<resultMap type="com.cqupt.dormitory.model.Admin" id="adminResultFull">
+		<id property="id" column="admin_id"/>
+		<result property="sex" column="admin_sex"/>
+		<result property="adminNum" column="admin_num"/>
+		<result property="password" column="password"/>
+		<result property="name" column="admin_name"/>
+		<result property="post" column="admin_post"/>
+	</resultMap>
+	
+	<!-- 查找所有的管理员 -->
+	<select id="findAllAdmin" resultMap="adminResult">
+		SELECT * FROM `admin` 
+	</select>
+	
+	<!-- 根据教工号和密码查找管理员 -->
+	<select id="findAdminByNumAndPw" parameterType="com.cqupt.dormitory.model.Admin" resultMap="adminResultFull">
+		SELECT * FROM `admin` WHERE `admin_num`=#{adminNum} AND `password`=#{password}
+	</select>
+
+	<!-- 更新管理员信息 -->
+	<update id="updateAdminInfo" parameterType="com.cqupt.dormitory.model.Admin">
+		UPDATE `admin` 
+		<set>
+			<if test="sex!=null and sex!=''">`sex` = #{sex},</if>
+			<if test="name!=null and name!=''">`admin_name` = #{name},</if>
+			<if test="post!=null and post!=''">`post` = #{post},</if>
+			<if test="password!=null and password!=''">`password` = #{password}</if>
+		</set>
+			WHERE `admin_num` = #{adminNum}
+	</update>
+	
+	<!-- 根据id查找辅导员 -->
+	<select id="findAdminById" parameterType="Integer" resultMap="adminResultFull" statementType="STATEMENT">
+		SELECT * FROM `admin` WHERE `admin_id` = ${_parameter}
+	</select>
+	
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.dormitory.model.Academy">
+	<!-- 结果集 academyResult -->
+	<resultMap type="com.cqupt.dormitory.model.Academy" id="academyResult">
+		<id property="id" column="academy_id"/>
+		<result property="name" column="academy_name"/>
+	</resultMap>
+	
+	<!-- 查找所有的学院信息 -->
+	<select id="findAllAcademy" resultMap="academyResult">
+		SELECT * FROM `academy`
+	</select>
+	
+	<!-- 根据学院名字查找学院 -->
+	<select id="findAcademyByName" parameterType="String" resultMap="academyResult">
+		SELECT * FROM `academy` WHERE `academy_name` = #{_parameter}
+	</select>
+
+</mapper>

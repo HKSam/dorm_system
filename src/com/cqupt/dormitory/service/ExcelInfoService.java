@@ -1,0 +1,56 @@
+package com.cqupt.dormitory.service;
+
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.cqupt.dormitory.model.ExcelInfo;
+
+/**
+ * 处理宿舍分配Excel信息的Service层接口
+ * @author Bern
+ *
+ */
+public interface ExcelInfoService {
+	/**
+	 * 添加excel信息
+	 * @param excelInfo
+	 */
+	public boolean addExcel(ExcelInfo excelInfo);
+	
+	/**
+	 * 根据id删除excel信息
+	 * @param excelInfo
+	 */
+	public boolean deleteExcelById(List<Integer> ids);
+	
+	/**
+	 * 查找所有的excel信息
+	 * @return
+	 */
+	public List<ExcelInfo> findAllExcel();
+	
+	/**
+	 * 根据教工号查找相关的提交的excel信息
+	 * @param tecNum
+	 * @return
+	 */
+	public List<ExcelInfo> findExcelByTecNum(String tecNum);
+	
+	/**
+	 * 改变Excel的状态
+	 * @param status
+	 * @return
+	 */
+	public boolean changeExcelStatus(List<Integer> ids, int approvedAdminId, int status);
+	
+	/**
+	 * findExcelById 根据某个id来找到相应的excelInfo
+	 * @param id
+	 * @return 
+	 *ExcelInfo
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public ExcelInfo findExcelById(int id);
+}

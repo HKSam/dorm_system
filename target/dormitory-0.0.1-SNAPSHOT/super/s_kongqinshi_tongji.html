@@ -1,0 +1,98 @@
+
+<style type="text/css">
+#filter {
+	margin-left:8px;
+}
+#searchBar select {
+	width:200px;
+	margin-right:20px;
+	margin-bottom:30px;
+}
+/* #chartDisplay{
+	width: 600px;
+	height: 500px;
+} */
+</style>
+<div class="right_top btm">
+  <div class="rheader"><span class="pageName"><b>空寝室统计</b></span><span class="shuoming">您可以查看各片区楼栋空寝室剩余数量</span></div>
+</div>
+<div class="right_contain"> 
+  <!-- 筛选框 -->
+	<div id="searchBar">
+    <!-- 性别：
+    <select name="sex">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select> -->
+		片区:
+		<select name="area" id="area">
+			<option value="-1" selected="selected">未选择</option>
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="C">C</option>
+			<option value="D">D</option>
+		</select>	
+		<input type="button" value="确定" id="filter">
+	</div>
+   <div id="chartDisplay"></div>
+<script>
+var options={
+    chart: {
+        renderTo: 'chartDisplay',
+        type: 'column'
+    },
+    title: {
+        text: '楼栋空寝室剩余数量统计'
+    },
+    xAxis: {
+        //categories: ['Apples', 'Bananas', 'Oranges']
+        title: {
+            text: '楼栋'
+        }
+    },
+    yAxis: {
+        title: {
+            text: '空寝室数'
+        }
+    },
+    credits:{
+    	enabled:false
+    },
+    series: [{
+        //name: '经济管理学院',
+        //data: [1, 0, 4]
+    }]
+};
+var x=[];//x轴要展示的楼栋
+var y=[];//y轴要展示的数据
+$("#filter").click(function() {
+	$.ajaxSettings.async = false;
+	if(GLOBAL.notSelected()){
+		$.post('/dormitory/areaInfo/getBuildingEmptyBed.do',{
+				area:GLOBAL.getArea()
+			},
+			function(data){
+				var record=data['data'];
+				if(record.length==0){
+					$.messager.alert('提示','无对应数据');
+				}else{
+					$.each(record,function(i,val) {
+					 x.push(val['buildingNum']);
+					 y.push(val['emptyBed']);
+					});
+					//动态设置图标数据
+					options.xAxis.categories=x;
+					options.series[0]['name']='片区'+$('select[name="area"]').val();
+					options.series[0]['data']=y;
+					var chart1 = new Highcharts.Chart(options);//展示
+					//清空x,y
+					x=[];
+					y=[];
+				}
+			}
+		);	
+	}
+});
+</script>

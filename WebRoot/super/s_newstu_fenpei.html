@@ -1,0 +1,279 @@
+<script type="text/javascript" src="../js/s_fenpei_right.js" charset="utf-8"></script>
+<div class="right_top">
+  <div class="rheader"> <span class="pageName"><b>新生寝室分配</b></span> <span class="shuoming">您可以导入新生表后为其分配寝室</span> </div>
+  <ul class="right_ul right_ul_newfenpei">
+    <li><a href="javascript:void(0)" class="editornav" >Step1选择要分配人员名单</a></li>
+    <li><a href="javascript:void(0)">Step2选择寝室</a></li>
+    <li><a href="javascript:void(0)">Step3完成</a></li>
+  </ul>
+</div>
+<div class="right_contain">
+<div class="stu_xuanze">
+    <div class="jilian">
+       学历:
+      <select class="select education" name="education">
+        <option value="-1">请选择</option>
+        <option value="">全部</option>
+        <option value="本科在读">本科在读</option>
+        <option value="研究生在读">研究生在读</option>
+        <option value="博士生在读">博士生在读</option>
+      </select>
+      性别:
+      <select class="select sex" name="sex">
+        <option value="-1">请选择</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      学院:
+      <select class="select academy" name="academy.id">
+        <option value="-1">请选择</option>
+      </select><br />
+      专业:
+      <select class="select major" name="major">
+        <option value="-1">请选择</option>
+      </select>
+      班级:
+      <select class="select classNum" name="classNum">
+        <option value="-1">请选择</option>
+      </select>      
+    </div>
+    <input type="button" name="botton" value="确定" class="jilian_sure" />
+  </div>
+    <div class="table_one"></div>
+    <div class="fenpei_txt"> 本次分配已选<strong><span class='option_sum'>0</span></strong>人
+        <input type='button' name='nextStep' value='下一步' class='nextStep' />
+    </div>
+</div>
+
+<!--选择分配的学生名单--> 
+<script type="text/javascript">
+	var d=new Date();
+	fenpei_sure.grade=d.getFullYear();
+	var optionhtml="<option value='-1'>请选择</option><option value=''>全部</option>";
+	if(sum_fenpei==0){
+		showAcademy();
+		$(".fenpei_txt").hide();//把本次分配已选择和下一步隐藏
+		onclick();
+	}else if(sum_fenpei>0){
+		showAcademy();
+		$('select[name="major"]').append("<option value=''>全部</option>");
+		for(var i=0;i<fenpei['fenpei_major'].length;i++){
+			$('select[name="major"]').append("<option value='" + fenpei['fenpei_major'][i] + "'>" + fenpei['fenpei_major'][i] + "</option>");
+		}
+		$('select[name="classNum"]').append("<option value=''>全部</option>");
+		for(var i=0;i<fenpei['fenpei_classNum'].length;i++){
+			$('select[name="classNum"]').append("<option value='" + fenpei['fenpei_classNum'][i] + "'>" + fenpei['fenpei_classNum'][i] + "</option>");
+		}
+		//$("#one_select").val(fenpei_sure.grade);//选中
+		$('select[name="education"]').val(fenpei_sure.education);
+		$('select[name="sex"]').val(fenpei_sure.sex);
+		$('select[name="academy.id"]').val(fenpei_sure.academy);
+		$('select[name="major"]').val(fenpei_sure.major);
+		$('select[name="classNum"]').val(fenpei_sure.classNum);
+		showData();
+		onclick();
+	}
+	//点击确定级联
+	function onclick(){
+		$(".jilian_sure").click(function() {//点击确定
+			/*if($('select[name="grade"]').val()=="-1"){
+				alert("请先选择年级！");
+			}else */if($('select[name="education"]').val()=="-1"){
+				 $.messager.alert("警告","请先选择学历!","warning");
+			}else if($('select[name="sex"]').val()=="-1"){
+				 $.messager.alert("警告","请先选择性别!","warning");
+			}else if($('select[name="academy.id"]').val()=="-1"){
+				 $.messager.alert("警告","请先选择学院!","warning");
+			}else if($('select[name="major"]').val()=="-1"){
+				 $.messager.alert("警告","请先选择专业!","warning");
+			}else if($('select[name="classNum"]').val()=="-1"){
+				 $.messager.alert("警告","请先选择班级!","warning");
+			}else{
+				sum_fenpei_kong=0;//点击确定时，代表重新选择分配的学生，所以已经选择的空床位置为0
+				//grade = $("#one_select").val();
+				fenpei_sure.education = $('select[name="education"]').val();
+				fenpei_sure.sex = $('select[name="sex"]').val();
+				fenpei_sure.academy = $('select[name="academy.id"]').val();
+				fenpei_sure.major = $('select[name="major"]').val();
+				fenpei_sure.classNum = $('select[name="classNum"]').val();
+				//fenpei_sure={"academy":academy,"education":education,"major":major,"grade":grade,"classNum":classNum,"sex":sex};
+				showData();
+			}
+		});
+	}
+	//找到符合条件的学生并展现
+	function showData(){
+		stuNums=[];
+		$.post('../studentInfo/findStudentByCondition.do', {"academy":fenpei_sure.academy,"education":fenpei_sure.education,"grade":fenpei_sure.grade,"major":fenpei_sure.major,"classNum":fenpei_sure.classNum,"sex":fenpei_sure.sex,"livingStatus":3}, function(data) {
+			if(data){
+				$.each(data.rows, function(index, item){
+					stuNums.push(item.stuNum);
+				});
+			}});
+				$(".table_one").datagrid({
+					width : '835px',
+					height : '330px',
+					url : '../studentInfo/findStudentByCondition.do',
+					rownumbers:'true',
+					fitColumns:'true',
+					queryParams:{
+						academy:fenpei_sure.academy,
+						education:fenpei_sure.education,
+						grade:fenpei_sure.grade,
+						major:fenpei_sure.major,
+						classNum:fenpei_sure.classNum,
+						sex:fenpei_sure.sex,
+						livingStatus:3
+					},
+					pagination : true,
+					columns : [ [
+					        {field : 'academy',title : '学院',width : 200,align : 'center',
+					        	formatter:function(value){
+								 	return value.name;
+								 }
+					        }, 
+							{field : 'major',title : '专业',width : 150,align : 'center'},
+							{field : 'classNum',title : '班级',width : 100,align : 'center'}, 
+							{field : 'stuNum',title : '学号',width : 100,align : 'center'},
+							{field : 'name',title : '姓名',width : 100,align : 'center'}, 
+							{field : 'sex',title : '性别',width : 60,align : 'center'}, 
+							{field : 'education',title : '学历',width : 120,align : 'center'}
+				     ] ],
+				     onLoadError:function(){
+						$.messager.alert("提示","载入远程数据出错！请刷新重试。","warning");
+				    },
+					onLoadSuccess:function(data){
+						if(data.rows.length==0){
+							$.messager.alert("提示","没有符合条件的数据，请重新选择筛选条件","warning");
+						}
+						sum_fenpei = data.total;//选择的人数总量
+						openSum();
+					},
+				});
+			//}else{
+			//	$.messager.alert("提示","未找到符合条件的学生，请重新选择","info");
+			//}
+		//});
+	}
+	//展现已经选择多少人的函数
+	function openSum() {
+		$(".option_sum").html(sum_fenpei);
+		$(".fenpei_txt").show();
+	}
+	//点击下一步时
+	$(".nextStep").click(function() {
+		/*if (sum_fenpei > 0) {
+			$.post('test/getResult.do', {"academy":fenpei_sure.academy,"education":fenpei_sure.education,"grade":fenpei_sure.grade,"major":fenpei_sure.major,"classNum":fenpei_sure.classNum,"sex":fenpei_sure.sex}, function(data) {
+					if(data.status=="1"){
+						$("#base_right .right_contain").empty().load("super/s_qinshi_xuanze.html");
+						$(".editornav").removeAttr("class").parent().next().find("a").addClass("editornav");
+					}else{
+						$.messager.alert("提示","分配失败,原因:"+data.info,"info");
+					}
+				});
+			} else{
+				$.messager.alert("提示","选择分配的人数为0，无法分配寝室，请重新选择要分配的人员！","info");
+			}*/
+		if(sum_fenpei>0){//后台直接按照级联选择的条件确定分配的学生
+			//$.post('xuanzhederen', {"academy":fenpei_sure.academy,"education":fenpei_sure.education,"grade":fenpei_sure.grade,"major":fenpei_sure.major,"classNum":fenpei_sure.classNum,"sex":fenpei_sure.sex});
+			$("#base_right .right_contain").empty().load("s_qinshi_xuanze.html");
+			$(".editornav").removeAttr("class").parent().next().find("a").addClass("editornav");
+		}else{
+			 $.messager.alert("提示","选择分配的人数为0，无法分配寝室，请重新选择要分配的人员！","info");
+		}
+	});
+//	第二个选择框改变时  学历
+	$('select[name="education"]').change(function(){
+		$('select[name="sex"]').val("-1");
+		$('select[name="academy.id"]').val("-1");
+		$('select[name="major"]').empty();
+		$('select[name="major"]').append(optionhtml);
+		$('select[name="classNum"]').empty();
+		$('select[name="classNum"]').append(optionhtml);
+		fenpei_sure.sex="";
+		fenpei_sure.academy="";
+		fenpei_sure.major="";
+		fenpei_sure.classNum="";
+		var str="";
+		str=$('select[name="education"] option:selected').val();
+		fenpei_sure.education=str;
+	});
+//	第三个选择框改变时   性别，请求学院
+	$('select[name="sex"]').change(function(){
+		$('select[name="academy.id"]').val("-1");
+		$('select[name="major"]').empty();
+		$('select[name="major"]').append(optionhtml);
+		$('select[name="classNum"]').empty();
+		$('select[name="classNum"]').append(optionhtml);
+		fenpei_sure.academy="";
+		fenpei_sure.major="";
+		fenpei_sure.classNum="";
+		var str="";
+		str=$('select[name="sex"] option:selected').val();
+		fenpei_sure.sex=str;//请求学院。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+	});
+//	第四个选择框改变时  学院,请求专业
+	$('select[name="academy.id"]').change(function(){
+		$('select[name="major"]').empty();
+		$('select[name="major"]').append(optionhtml);
+		$('select[name="classNum"]').empty();
+		$('select[name="classNum"]').append(optionhtml);
+		fenpei_sure.major="";
+		fenpei_sure.classNum="";
+		var str="";
+		str=$('select[name="academy.id"] option:selected').val();
+		fenpei_sure.academy=str;
+		if($('select[name="education"]').val()=="-1"){
+			 $.messager.alert("警告","请选择学历!","warning");
+		}else if($('select[name="sex"]').val()=="-1"){
+			 $.messager.alert("警告","请选择性别!","warning");
+		}else{
+			$.post('../studentInfo/findCascadingInfo.do',{"grade":fenpei_sure.grade,"education":fenpei_sure.education,"academy":fenpei_sure.academy,"target":"major"},function(data){
+				if(data.length){
+				fenpei['fenpei_major']=data;
+					for(var i=0;i<data.length;i++){
+						$('select[name="major"]').append("<option value='" + data[i] + "'>" + data[i] + "</option>");
+					}
+				}else{
+					$.messager.alert("提示","未找到符合条件的专业，请重新选择","info");
+				}
+			});
+		}
+	});
+	//第五个框改变时   专业，请求班级
+	$('select[name="major"]').change(function(){
+		$('select[name="classNum"]').empty();
+		$('select[name="classNum"]').append(optionhtml);
+		fenpei_sure.classNum="";
+		var str="";
+		str=$('select[name="major"] option:selected').val();
+		fenpei_sure.major=str;
+		$.post('../studentInfo/findCascadingInfo.do',{"grade":fenpei_sure.grade,"education":fenpei_sure.education,"academy":fenpei_sure.academy,"major":fenpei_sure.major,"target":"classNum"},function(data){
+			if(data.length){
+				fenpei['fenpei_classNum']=data;
+				for(var i=0;i<data.length;i++){
+					$('select[name="classNum"]').append("<option value='" + data[i] + "'>" + data[i] + "</option>");
+				}
+			}else{
+				$.messager.alert("提示","未找到符合条件的班级，请重新选择","info");
+			}
+		});
+	});
+	//第六个框改变时   班级
+	$('select[name="classNum"]').change(function(){
+		var str="";
+		str=$('select[name="classNum"] option:selected').val();
+		fenpei_sure.classNum=str;
+	});
+	//加载学院和年级
+	function showAcademy(){
+		$('select[name="academy.id"]').empty();
+		$('select[name="academy.id"]').append(optionhtml);
+		GLOBAL.showAcademy();
+	}
+	sum_diaohuan=0;
+	diaohuan={};//存放级联
+	diaohuan['diaohuan_major']=[];
+	diaohuan['diaohuan_classNum']=[];
+	diaohuan_sure={"academy": "","education":"","grade":"","major": "","classNum" : "","sex" : ""};//自己保存
+</script>

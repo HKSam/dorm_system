@@ -1,0 +1,105 @@
+
+<style type="text/css">
+#filter {
+	margin-left:8px;
+}
+#searchBar select {
+	width:200px;
+	margin-right:20px;
+	margin-bottom:30px;
+}
+/* #chartDisplay{
+	width: 600px;
+	height: 500px;
+} */
+</style>
+<div class="right_top btm">
+  <div class="rheader"><span class="pageName"><b>各学院学生分布</b></span><span class="shuoming">您可以查看各学院的学生分布统计图</span></div>
+</div>
+<div class="right_contain"> 
+  <!-- 筛选框 -->
+	<div id="searchBar">
+		学院:
+		<select name="academy.id" id="academy">
+			<option value="-1">未选择</option>
+		</select>
+		年级:
+    <select name="grade" id="grade">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+    </select>
+		性别：
+    <select name="sex">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+		<input type="button" value="确定" id="filter">
+	</div>
+  <div id="chartDisplay"></div>
+<script>
+//加载学院选项
+GLOBAL.showAcademy();
+//展示年级选项
+GLOBAL.showGrade();
+var options={
+    chart: {
+        renderTo: 'chartDisplay',
+        type: 'column'
+    },
+    title: {
+        text: '学院学生分布'
+    },
+    xAxis: {
+        //categories: ['Apples', 'Bananas', 'Oranges']
+        title: {
+            text: '楼栋'
+        }
+    },
+    yAxis: {
+        title: {
+            text: '人数'
+        }
+    },
+    credits:{
+    	enabled:false
+    },
+    series: [{
+        //name: '经济管理学院',
+        //data: [1, 0, 4]
+    }]
+};
+var x=[];//x轴要展示的楼栋
+var y=[];//y轴要展示的数据
+$("#filter").click(function() {
+	$.ajaxSettings.async = false;
+	if(GLOBAL.notSelected()){
+		$.post('/dormitory/StudentStatistics/distributionOfStudent.do',{
+				sex:GLOBAL.getSex(),
+				academy:GLOBAL.getAcademy(),
+				grade:GLOBAL.getGrade()
+			},
+			function(data){
+				var record=data['data'];
+				if(record.length==0){
+					$.messager.alert('提示','无对应数据');
+				}else{
+					$.each(record,function(i,val) {
+					 x.push(val['building']);
+					 y.push(val['num']);
+					});
+					//动态设置图标数据
+					options.xAxis.categories=x;
+					options.series[0]['name']=$('select[name="academy.id"]').find('option:selected').html();
+					options.series[0]['data']=y;
+					var chart1 = new Highcharts.Chart(options);//展示
+					//清空x,y
+					x=[];
+					y=[];
+				}
+			}
+		);	
+	}
+});
+</script>

@@ -1,0 +1,173 @@
+<style type="text/css">
+#filter {
+	display:inline;
+	margin-left:10px;
+	overflow:hidden;
+}
+#searchBar {
+	display:inline-block;
+}
+#searchBar select {
+	width:100px;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+</style>
+<div class="right_top btm">
+  <div class="rheader"><span class="pageName"><b>退宿管理</b></span><span class="shuoming">您可以查看符合条件的在校住宿学生，并对其做退宿处理</span></div>
+</div>
+<div class="right_contain"> 
+  <!-- 筛选框 -->
+  <div id="searchBar"> 
+  	年级:
+    <select name="grade" id="grade">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+    </select>
+    学历:
+    <select name="education" id="education">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+      <option value="本科在读">本科生</option>
+      <option value="研究生在读">研究生</option>
+      <option value="博士生在读">博士生</option>
+    </select>
+    性别：
+    <select name="sex">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    学院:
+    <select name="academy.id" id="academy">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+    </select>
+    楼栋：
+    <select name="building">
+      <option value="-1" selected="selected">未选择</option>
+      <option value="">全部</option>
+    </select>
+    <input type="button" value="确定" id="filter">
+  </div>
+  
+  <!-- 展示数据的表格 -->
+  <div id="showTable"></div>
+</div>
+<script type="text/javascript">
+//加载学院选项
+GLOBAL.showAcademy();
+//展示年级选项
+GLOBAL.showGrade();
+var showTable=$('#showTable');//定义一个全局变量，指向要操作的table
+var bui=$('select[name="building"]'),
+		sex=$('select[name="sex"]'),
+		gra=$('select[name="grade"]'),
+		edu=$('select[name="education"]'),
+		aca=$('select[name="academy.id"]');
+//生成楼栋
+bui.focus(function(){
+	bui.find('option:gt(1)').remove();
+	if(GLOBAL.getSex()=='-1'||GLOBAL.getGrade()=='-1'||GLOBAL.getAcademy()=='-1'||GLOBAL.getEducation()=='-1'){
+		$.messager.alert('操作提示','请先选择前面的选择框');
+	}else{
+		$.post('/dormitory/areaInfo/findBuildingByManyField.do',{
+				target:'building',
+				sex:GLOBAL.getSex(),
+				grade:GLOBAL.getGrade(),
+				academy:GLOBAL.getAcademy(),
+				education:GLOBAL.getEducation()
+			},
+			function(data){
+				$(data).each(function(i,v){
+	        bui.append('<option value="'+v+'">'+v+'</option>');
+	      });
+			}
+		);
+	}
+});
+//选择框改变
+sex.change(function(){
+	bui.find('option:gt(1)').remove();
+});
+gra.change(function(){
+	bui.find('option:gt(1)').remove();
+});
+aca.change(function(){
+	bui.find('option:gt(1)').remove();
+});
+edu.change(function(){
+	bui.find('option:gt(1)').remove();
+});
+
+$("#filter").click(function(event) {//点击筛选展示数据
+	if(GLOBAL.notSelected()){
+		showTable.datagrid({
+			width:'650px',
+			height:'330px',
+			url:'/dormitory/studentInfo/findStudentWithRoom.do',
+			rownumbers:'true',
+		  fitColumns:'true',
+		  striped:'true',
+			nowrap:'false',
+			queryParams:{
+				target:'building',
+				sex:GLOBAL.getSex(),
+				academy:GLOBAL.getAcademy(),
+				grade:GLOBAL.getGrade(),
+				education:GLOBAL.getEducation()
+			},
+			pagination:'true',
+			toolbar:[{
+				id:'deleteRows',
+				text:'退宿',
+				iconCls:'icon-remove',
+				handler:deleterow
+			}],
+			columns:[[    
+				{field:'ck',checkbox:true},    
+				{field:'name',title:'姓名',width:150,align:'center'}, 
+				{field:'stuNum',title:'学号',width:150,align:'center'},    
+				{field:'room',title:'寝室号',width: 100,align:'center',
+					formatter:function(value,row){
+						if(row.room){
+							return row.room.roomNum;
+						}else{
+							return '无数据';
+						}
+			    }
+				},    
+				{field:'inTime',title:'入住时间',width:200,align:'center',
+					formatter:function(value){
+						return value.match(/^\d{4}-\d{2}-\d{2}/);
+			    }
+				}
+			]]
+		}); 
+		showTable.datagrid('autoSizeColumn');//自动调整列宽度以适应内容
+	}
+
+});
+function deleterow() {
+	var selections=showTable.datagrid('getSelections');
+	var delRowsIdArray=[];//存储要删除的学生id
+	if(selections.length==0){//没有选择要删除的行
+		$.messager.alert('操作提示', '请选择要删除的行');
+	}else{
+		for(var i=0;i<selections.length;i++){
+			delRowsIdArray[i]=selections[i].stuNum;//studentId为表的主键
+			//var index=showTable.datagrid('getRowIndex',selections[i]);
+			//showTable.datagrid('deleteRow',index);
+		}
+		$.post('/dormitory/studentInfo/checkOutStudent.do',{'delRowsIdArray':delRowsIdArray},function(data){
+			if(data.status=='0'){
+				$.messager.alert('操作提示',data.info);
+			}else if(data.status=='1'){
+				showTable.datagrid('reload');
+				$.messager.alert('操作提示', '删除成功！');
+			}
+		});
+	}
+}
+</script>

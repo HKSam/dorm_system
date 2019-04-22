@@ -1,0 +1,444 @@
+package com.cqupt.dormitory.service.impl;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.CellReference;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.stereotype.Service;
+
+import com.cqupt.dormitory.dao.BuildingDao;
+import com.cqupt.dormitory.dao.FloorDao;
+import com.cqupt.dormitory.dao.RoomDao;
+import com.cqupt.dormitory.dao.StudentInfoDao;
+import com.cqupt.dormitory.model.Floor;
+import com.cqupt.dormitory.model.Room;
+import com.cqupt.dormitory.model.Student;
+import com.cqupt.dormitory.service.RoomService;
+import com.cqupt.dormitory.vo.ResultMessage;
+import com.cqupt.dormitory.vo.RoomInFloor;
+
+@Service("roomService")
+public class RoomServiceImpl implements RoomService{
+	@Resource
+	private RoomDao roomDao;
+	@Resource
+	private FloorDao floorDao;
+	@Resource
+	private BuildingDao buildDao;
+	@Resource
+	private StudentInfoDao studentInfoDao;
+	
+	
+	
+	@Override
+	public RoomInFloor findRoomInFloorForView(String buildingNum) {
+		List<Room> rooms = roomDao.findAllRoomByBuildingNumAndFloor(buildingNum,"%");
+		return this.roomHandler(rooms,true);
+	}
+
+	
+	@Override
+	public RoomInFloor findEmptyRoomInFloorForView(String buildingNum) {
+		List<Room> rooms = roomDao.findAllRoomByBuildingNumAndFloor(buildingNum,"%");
+		return this.roomHandler(rooms,false);
+	}
+	
+	
+	
+	/**
+	 * RoomHandler 创建相应的vo 需要的方法  
+	 * @param rooms 默认拿出来就是按照floorNum 来排序的.
+	 * @param emtpyStatus 是否展示空寝室, true是所有寝室.false是排除空寝室.
+	 * @return 
+	 *RoomInFloor
+	 * @exception 
+	 * @since  1.0.0
+	 * @author hhy
+	 */
+	private RoomInFloor roomHandler(List<Room> rooms ,boolean emtpyStatus){
+		RoomInFloor roomInFloor = new RoomInFloor();
+		List<Map<String,String>> rows = new ArrayList<Map<String,String>>();
+		String oldFloorNum =null;
+		Map<String,String> everyFloorRoom = null;
+		int i = 0; //计数器
+		int columnMax = 0;
+		for(Room r : rooms){
+			Floor thisFloor = r.getFloor();
+			
+			if(!thisFloor.getFloorNum().equals(oldFloorNum)){
+				//如果不相等就要开始创建Map,将原来的map 放进rows里面
+				if(columnMax < i){
+					columnMax = i;
+				}
+				i = 1;
+				oldFloorNum = thisFloor.getFloorNum();
+				if(everyFloorRoom != null){
+					rows.add(everyFloorRoom);
+				}
+				everyFloorRoom = new HashMap<String,String>();
+				everyFloorRoom.put("item1", thisFloor.getFloorNum());
+			}
+			//this.putIntoMapString(everyFloorRoom,i,r,emtpyStatus);
+			
+			if(r.getRoomNum().equals("0") && !emtpyStatus){
+				//不需要展示.直接返回 不需要展示空寝室 
+			}else{
+				//需要展示空寝室
+				i++;
+				everyFloorRoom.put("item"+i, this.roomNumHandler(r));
+			}
+		}
+		if(columnMax < i){
+			columnMax = i;
+		}
+		rows.add(everyFloorRoom);//最后一大堆.
+		
+		
+		roomInFloor.setColumnMax(columnMax);
+		roomInFloor.setRows(rows);
+		roomInFloor.setTotal(rooms.size());
+		return roomInFloor;
+	}
+	
+	private void putIntoMapString(Map<String,String> map ,int i,Room r,boolean emptyStatus){
+		if(r.getRoomNum().equals("0") && !emptyStatus){
+			//不需要展示.直接返回 不需要展示空寝室 
+			return;
+		}else{
+			//需要展示空寝室
+			map.put(""+i, this.roomNumHandler(r));
+		}
+	}
+	
+	
+	
+	/**
+	 * roomNumHandler 专业生产超级字符串300年! 
+	 * 拼凑 190101<br>1/2
+	 * @param r
+	 * @return 
+	 *String
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	private  String roomNumHandler(Room r){
+		StringBuffer s = new StringBuffer();
+		s.append(r.getRoomNum());
+		s.append("<br/>");
+		s.append(r.getAlreadyStay());
+		s.append("/");
+		s.append(r.getTotalBed());
+		return s.toString();
+	}
+
+	@Override
+	public List<String> findAllCategoryOfRoom() {
+		return roomDao.findAllCategoryOfRoom();
+	}
+
+	@Override
+	public List<String> findAllCostOfRoom() {
+		return roomDao.findAllCostOfRoom();
+	}
+
+	@Override
+	public boolean updateCategoryAndCost(int totalBed, int cost,
+			String buildingNum, String floorNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delRoomNumOfStudent(String[] studentIds) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delRoomNumOfStudent(String studentId) {
+		String[] students = {studentId};
+		return this.delRoomNumOfStudent(students);
+	}
+
+	@Override
+	public boolean udpateRoom(Room r) {
+		try {
+			if(roomDao.isPersonInRoom(r.getRoomNum())){
+				roomDao.updateRoom(r);
+			}else{
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean addRoom(String buildingNum, String floorNum, int cata,int fee) {
+		try {
+			int floorId = floorDao.findFloorId(buildingNum, floorNum);
+			int roomNum = roomDao.findCurrentFloorNum(floorId)+1;
+
+			Floor f = new Floor();
+			f.setId(floorId);
+
+			Room r = new Room();
+			r.setAlreadyStay(0);
+			r.setCost(fee);
+			r.setFloor(f);
+			r.setRoomNum(this.spellTheRoomNum(buildingNum,floorNum,roomNum));
+			r.setTotalBed(cata);
+			roomDao.add(r);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}finally{
+			return true;
+		}
+	}
+	
+	
+	/**
+	 * spellTheRoomNum 拼接字符串的.
+	 * @param buidingNum
+	 * @param floorNum
+	 * @param roomNum
+	 * @return 
+	 *String
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	private String spellTheRoomNum(String buidingNum,String floorNum,int roomNum){
+		StringBuffer strRoomNum = new StringBuffer();
+		if(buidingNum.length()<2){
+			strRoomNum.append("0");
+		}
+		strRoomNum.append(buidingNum);
+		if(floorNum.length()<2){
+			strRoomNum.append("0");
+		}
+		strRoomNum.append(floorNum);
+		if(roomNum<10){
+			strRoomNum.append("0");
+		}
+		strRoomNum.append(""+roomNum);
+		return strRoomNum.toString();
+	}
+
+	@Override
+	public boolean delRoom(String roomNum) {
+		
+		try {
+			roomDao.delRoom(roomNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<Student> findAllPersonInRoom(String roomNum) {
+		return roomDao.findAllPersonInRoom(roomNum);
+	}
+
+
+	@Override
+	public boolean updateChangeRoom(String studentNum, String roomNum) {
+		//要判断这个房间人满了没有! 还要判断这个人是不是跟这个房间上面的属性是一样的.就是说不能直接加女生.
+		Student s = studentInfoDao.findStudentByStuNum(studentNum);
+		Room r = roomDao.findAllRoomByBuildingNumAndFloor(roomNum,"%").get(0);
+		if(r.getAlreadyStay()>=r.getTotalBed()){
+			//人太多了.不能再加了
+			return false;
+		}
+		if(!s.getSex().equals(r.getFloor().getBuilding().getSex())){
+			//性别不合 添加失败
+			return false;
+		}
+		return this.updateChangeRoom(studentNum, r.getId());
+	}
+	
+	public boolean updateChangeRoom(String studentNum,int roomId){
+		try {
+			roomDao.updateStudentRoom(studentNum,roomId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean updateDistributeRoom(List<String> studentNums,String[] buildingNum) {
+		try {
+			int j = 0;
+			int k = 0;
+			List<Room> allRoomList = new ArrayList<Room>(4000);
+			
+			for(String b : buildingNum){
+				allRoomList.addAll(roomDao.findAllRoomByBuildingNumAndFloor(b, "%"));
+			}
+			
+			Room r = allRoomList.get(k);
+			
+			for(int i = 0;i<studentNums.size() ;i++){
+				String studentNum = studentNums.get(i);
+				if((r.getTotalBed()-r.getAlreadyStay())<j+1){
+					k++;
+					r = allRoomList.get(k);
+					while((r.getTotalBed()-r.getAlreadyStay())<1){
+						k++;
+						r = allRoomList.get(k);
+					}
+					j=0;
+				}
+				if((r.getTotalBed()-r.getAlreadyStay())>0){
+					roomDao.updateStudentRoom(studentNum, r.getId());
+				}
+				j++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
+	}
+
+
+	@Override
+	public HSSFWorkbook getExcelForDistribute(List<Student> students) {
+		HSSFWorkbook workbook = new HSSFWorkbook();                     // 创建工作簿对象  
+	     try {
+			FileOutputStream fos = new FileOutputStream("test.xls");        // 创建.xls文件  
+			HSSFSheet sheet = workbook.createSheet();                       // 创建工作表  
+			
+		    HSSFRow row1 = sheet.createRow((short)0);               // 在索引0的位置创建行(最顶端的行)  
+            HSSFCell cell1 = null;                                  // 在索引0的位置创建单元格(左上
+			
+            String[] label = {"寝室号","学院","专业","班级","学号","姓名","性别"};
+            for(int i = 0;i<label.length;i++){
+            	cell1 = row1.createCell(i);     
+            	cell1.setCellValue(label[i]);
+            }
+			
+            for(int i = 0;i<students.size();i++){
+            	HSSFRow rows = sheet.createRow((short)i+1);
+            	HSSFCell cells = null;
+            	Student s = students.get(i);
+	        	for(int j = 0;j<label.length;j++){
+	        		cells = rows.createCell(j);     
+	             	cells.setCellValue(getCellValue(s,j));
+	            }  
+            }
+            
+            
+            workbook.write(fos);// 将workbook对象输出到文件test.xls  
+            fos.flush();        // 缓冲  
+            fos.close();        // 关闭流(养成好的习惯打开了就别忘记关闭)  
+			 
+			 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return workbook;
+	}
+	
+	
+	public String getCellValue(Student s ,int i){
+		if(i == 0){
+			return s.getRoom().getRoomNum();
+		}else if(i==1){
+			return s.getAcademy().getName();
+		}else if(i==2){
+			return s.getMajor();
+		}else if(i==3){
+			return s.getClassNum();
+		}else if(i==4){
+			return s.getStuNum();
+		}else if(i==5){
+			return s.getName();
+		}else if(i==6){
+			return s.getSex();
+		}else 
+			return "无";
+	}
+
+
+	@Override
+	public boolean updateStudentRoomNumByExcel(String fileName) {
+		
+	//	ResultMessage rm = new ResultMessage();
+		try {
+			File file = new File(fileName);
+			InputStream fs =  new FileInputStream(file);
+			String lastName= null;
+			Pattern pat = Pattern.compile("\\.[\\w]+");
+	 		Matcher m = pat.matcher(fileName);
+			while(m.find()){
+				lastName = m.group();
+			}
+			Workbook wb = null ;
+			if(lastName.equals(".xls")){
+				wb = new HSSFWorkbook(fs);
+			}else if(lastName.equals(".xlsx")){
+				OPCPackage docPackage = OPCPackage.open(fs);
+				wb = new XSSFWorkbook(docPackage);
+			}else{
+				throw  new RuntimeException();
+			}
+			
+			//第一个工作簿
+			Sheet sheet1 = wb.getSheetAt(0);
+			
+			for (int j=1;j<sheet1.getLastRowNum()+1;j++) {
+				Row row = sheet1.getRow(j);
+				String studentNum = null;
+				String roomNum = null;
+				for (Cell cell : row) {
+					CellReference cellRef = new CellReference(row.getRowNum(),cell.getColumnIndex());
+					switch(cellRef.getCol()){
+						case 0:roomNum = String.valueOf(Math.round(Double.parseDouble(cell.toString())));break;
+						case 4:studentNum = String.valueOf(Math.round(Double.parseDouble(cell.toString())));break;
+					}
+				}
+				roomDao.updateStudentRoom(studentNum,roomNum);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+}

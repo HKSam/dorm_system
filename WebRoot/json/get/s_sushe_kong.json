@@ -1,0 +1,43 @@
+{
+   "total" : "12",
+   "columnMax" : 12,
+   "rows" :
+      [
+         {
+            "area" : "A区",
+            "buildingEmptyBeds" :
+               [
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  },
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  },
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  }
+               ]
+         },
+         {
+            "area" : "A区",
+            "buildingEmptyBeds" :
+               [
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  },
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  },
+                  {
+                     "buildingNum" : "12",
+                     "emptyBed" : 100
+                  }
+               ]
+         }
+      ]
+}

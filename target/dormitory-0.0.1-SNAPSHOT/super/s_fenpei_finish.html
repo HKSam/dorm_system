@@ -1,0 +1,97 @@
+<style type="text/css">
+.xz_fenpeijg {
+	display:none;
+}
+.datagrid-wrap {
+	margin-bottom:30px;
+}
+</style>
+<div class="table_one"></div>
+<form action="../roomInfo/downLoadExcel.do" method="post">
+<input type="hidden" name="grade" />
+<input type="hidden" name="education" />
+<input type="hidden" name="sex" />
+<input type="hidden" name="academy.id" />
+<input type="hidden" name="major" />
+<input type="hidden" name="classNum" />
+<input type="submit" class="xz_fenpeijg" name="xiazai" value="下载分配结果" />
+</form>
+<script type="text/javascript">
+	var grade="";
+	var education = "";
+	var sex = "";
+	var academy = "";
+	var major = "";
+	var classNum = "";
+	if(sum_dhstu_kong>0){
+			grade=diaohuan_sure.grade;
+			education=diaohuan_sure.education;
+			sex=diaohuan_sure.sex;
+			academy=diaohuan_sure.academy;
+			major=diaohuan_sure.major;
+			classNum=diaohuan_sure.classNum;
+			sum_diaohuan=0;
+			sum_dhstu_kong=0;
+			diaohuan_sure={"academy" : "","education":"","grade":"","major" : "","classNum" : "","sex" : ""};//存放选择新生分配的条件  
+	} else if(sum_newstu_kong>0){
+			grade=fenpei_sure.grade;
+			education=fenpei_sure.education;
+			sex=fenpei_sure.sex;
+			academy=fenpei_sure.academy;
+			major=fenpei_sure.major;
+			classNum=fenpei_sure.classNum;
+			sum_fenpei=0;
+			sum_newstu_kong=0;
+			fenpei_sure={"academy" : "","education":"","grade":"","major" : "","classNum" : "","sex" : ""};//存放选择新生分配的条件  
+	}
+	//$.post('studentInfo/findStudentByCondition.do', {"academy":academy,"education":education,"grade":grade,"major":major,"classNum":classNum,"sex":sex}, function(data) {
+		$(".table_one").datagrid({
+			width : '865px',
+			height : '330px',
+			url : '../studentInfo/findStudentByNumArray.do',
+			rownumbers:'true',
+			fitColumns:'true',
+			queryParams:{
+						stuNum:stuNums
+					},
+			pagination : true,
+			columns : [ [
+			         {field : 'room',title : '寝室号',width : 80,align : 'center',
+						 formatter:function(value){
+						 	if(value==null){
+						 		return "未入住";
+						 	}else{
+						 		return value.roomNum;
+						 	}
+					 	}
+					 }, 
+					{field : 'academy',title : '学院',width : 130,align : 'center',
+						 formatter:function(value){
+							 return value.name;
+						 }
+					 }, 
+					{field : 'major',title : '专业',width : 200,align : 'center'},
+					{field : 'classNum',title : '班级',width : 100,align : 'center'}, 
+					{field : 'stuNum',title : '学号',width : 100,align : 'center'},
+					{field : 'name',title : '姓名',width : 100,align : 'center'}, 
+					{field : 'sex',title : '性别',width : 60,align : 'center'} 
+			] ],
+			onLoadError:function(){
+				$.messager.alert("提示","载入远程数据出错！请刷新重试。","warning");
+
+			},
+			onLoadSuccess:function(data){
+				if(data.rows.length==0){
+					$.messager.alert("提示","没有符合条件的数据，请重新选择筛选条件","warning");
+				}
+				$(".xz_fenpeijg").show();
+				$('input[name="grade"]').val(grade);
+				$('input[name="education"]').val(education);
+				$('input[name="sex"]').val(sex);
+				$('input[name="academy.id"]').val(academy);
+				$('input[name="major"]').val(major);
+				$('input[name="classNum"]').val(classNum);
+			},
+		});
+	//});
+</script>

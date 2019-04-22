@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="dormitory:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1189fea-7489-41e9-b8f0-b164a92cf2c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/dormitory_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/dormitory_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__avalon_framework_avalon_framework_4_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__avalon_framework_avalon_framework_api_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__avalon_logkit_avalon_logkit_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_cloudhopper_proxool_proxool_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_cloudhopper_proxool_proxool_cglib_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sdicons_jsontools_jsontools_core_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__geronimo_spec_geronimo_spec_javamail_1_3_1_rc3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__geronimo_spec_geronimo_spec_jms_1_1_rc4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__logkit_logkit_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_0_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_studio_org_apache_commons_io_2_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_excelant_3_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_scratchpad_3_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_all_1_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_17_1_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_3_2_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/annotations_api.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/Download/add_building_model.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/Download/stuInfoModel.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/Download/teaInfoModel.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/SimpleTree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/base_right.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/easyui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/fu_stumessege.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/blank.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/cancel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/clear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/cut.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/edit_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/edit_remove.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/filesave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/large_chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/large_clipart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/large_picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/large_shapes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/large_smartart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/lock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/man.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/mini_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/mini_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/mini_refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/no.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/ok.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/pencil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/print.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/redo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/reload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/sum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/tip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/icons/undo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/accordion_arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/blank.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/calendar_arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/combo_arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/datagrid_icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/datebox_arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/layout_arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/linkbutton_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/menu_arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/messager_icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/pagination_icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/panel_tools.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/searchbox_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/slider_handle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/spinner_arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/tabs_icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/tree_icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_flat_55_fbec88_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_glass_75_d0e5f5_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_glass_85_dfeffc_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_inset-hard_100_f5f8f9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_217bc0_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_469bdd_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_6da8d5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_d8e7f3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/ui-icons_f9bd01_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/images/validatebox_warning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/css/model.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/failed.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/findroom.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_addclassl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_modify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_modifystuchangehotel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_stuchangehotel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_studentmessage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/fu/f_viewclass.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/2253029x2jtezggxtze6gg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/add_loudong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/arrow-d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/arrow-u.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/checked.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/left.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/menu_bg.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/menu_bg1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/menu_bgs.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/reg_succ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/st_folder.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/st_folder_open.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/st_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/st_icon_open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/st_node.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/tabicons_12_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/title.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/images/top1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/SimpleTree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/cascade_two.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/easyui-lang-zh_CN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/f_cascade.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/f_index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/highcharts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.cascade.four.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.cascade.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.cascade.three.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.easyui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.edatagrid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/parameter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/s_fenpei_right.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/super_index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/js/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/c_pingyue_anpai.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/f_stu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/f_stuchangehotel.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/f_studentInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_academy_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_area.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_buildingid.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_chaxun_xinxi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_chaxun_xuesheng_xinxi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_check.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_check_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_classNum_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_diaohuanyijian_xinxi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_fenpei_jieguo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_fplook_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_grade_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_loudong_empty.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_loudong_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_loudong_xinxi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_major_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_newstu_fenpei.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_newstufp_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_olddh_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_stu_diaohuan.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_stu_fenpei.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_studentInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_stufenpei.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sure_fenpei.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_cata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_fee.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_kong.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_xinxi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_xinxi_chaxun.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_xinxi_chaxun_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_sushe_xinxi_empty.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_tuisu_guanli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_tuisu_guanli_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_xiaowai_zhusu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_xiaowai_zhusu_guanli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_xiaowai_zhusu_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_xueli_jilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/get/s_xueyuan_xuesheng_fenbu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/add_student_to_sushe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/f_stu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/login.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/name.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/post.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/s_add_dormitory.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/s_delete_student.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/s_delete_yijian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/s_sushe_detail.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/s_yijian_shenhe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/json/post/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/success.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_add_loudong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_add_sushe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_atuo_qsxuanze.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_chaxun_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_chaxun_xuesheng_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_chuangwei_tongji.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_diaohuan_yijian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_empty_qinshi_tongji.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_fenpei_finish.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_kongqinshi_tongji.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_modifybuilding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_newstu_fenpei.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_personInfo_modify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_piliang_daoru.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_piliang_daoru_guanliyuan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_qinshi_diaohuan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_qinshi_leixing_tongji.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_qinshi_xuanze.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_ruzhu_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_stu_sushe_change.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_sushe_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_sushe_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_sushe_xinxi_chaxun.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_tianjia_guanliyuan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_tianjia_xiaowai.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_tianjia_xuesheng_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_tuisu_guanli.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_xiaowai_zhusu_guanli.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_xiugai_xuesheng_xinxi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/super/s_xueyuan_xuesheng_fenbu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/前台声明.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/WebRoot/后台接口和传参.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/AcademyInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/AdminInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/AreaAndBulidingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/ClassAndMajorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/ExcelInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/RoomAndFloorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/StudentInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/StudentStatisticsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/TeacherInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/controller/VaildateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/AcademyDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/AdminDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/AreaDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/BuildingDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/ExcelInfoDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/FloorDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/RoomDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/StudentInfoDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/StudentStatisticsDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/TeacherInfoDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Academy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/AcademyDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Admin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/AdminDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Area.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/AreaDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/BaseDaoSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Building.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/BuildingDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/ExcelInfo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/ExcelInfoDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Floor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/FloorDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Room.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/RoomDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Student.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/StudentInfoDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/StudentStatistics.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/StudentStatisticsDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/Teacher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/dao/impl/TeacherInfoDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/interceptor/LoginCheckFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/interceptor/LoginCheckInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/interceptor/PagingParameterInteceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/interceptor/PagingSqlInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Academy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Area.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Building.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/ExcelInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Floor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/model/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/AreaBuildingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/ExcelInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/FloorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/RoomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/StudentInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/TeacherInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/AreaBuildingServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/ExcelInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/FloorServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/RoomServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/StudentInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/service/impl/TeacherInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/test/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/DBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/DataTypeUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/ExcelUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/JSONUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/SystemContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/utils/UploadFileUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/AreaBuilding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/AreaBuildingEmpty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/BuildingEmptyBed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/ClassAndMajor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/Condition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/Factor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/ResultMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/RoomInFloor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/com/cqupt/dormitory/vo/StudentBuildingDistribution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/config/applicationContext-commons.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/config/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/config/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/src/config/sqlMapConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/test/com/cqupt/dormitory/mybatis/test/MybatisTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/test/com/cqupt/dormitory/mybatis/test/StudentInfoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/test/com/cqupt/dormitory/mybatis/test/TeacherInfoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory/test/com/cqupt/dormitory/mybatis/test/halls/Test.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/AdminInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1272">
+              <caret line="51" column="13" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/ResultMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/ClassAndMajor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/config/applicationContext-commons.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-250">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.project">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-825" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.classpath">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/BuildingEmptyBed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/utils/DataTypeUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/StudentInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/ClassAndMajorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/config/applicationContext-commons.xml" />
+        <option value="$PROJECT_DIR$/src/com/cqupt/dormitory/utils/JSONUtils.java" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="Download" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="fu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dormitory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dormitory" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="D:/Tomcat/lib/websocket-api.jar!/" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3529412" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dormitory/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="dormitory:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/dormitory" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_dormitory" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60803" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="dormitory:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1189fea-7489-41e9-b8f0-b164a92cf2c2" name="Default Changelist" comment="" />
+      <created>1555924078622</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555924078622</updated>
+      <workItem from="1555924082008" duration="4480000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4480000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" weight="0.329718" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.25" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.329718" />
+      <window_info anchor="bottom" id="Spring" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Message" order="9" />
+      <window_info anchor="bottom" id="Find" order="10" />
+      <window_info anchor="bottom" id="Run" order="11" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" />
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info anchor="right" id="Palette" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/java/jdk/src.zip!/java/net/AbstractPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/AreaBuilding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/model/ExcelInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/sqlMapConfig.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-831" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/StudentBuildingDistribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/RoomInFloor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/log.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/AcademyInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/utils/JSONUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/interceptor/LoginCheckFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/interceptor/LoginCheckInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/interceptor/PagingParameterInteceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-835">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/interceptor/PagingSqlInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/model/Academy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/model/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/RoomAndFloorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/ExcelInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/ResultMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/ClassAndMajor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/applicationContext-commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-250">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/vo/BuildingEmptyBed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/utils/DataTypeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/StudentInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/ClassAndMajorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqupt/dormitory/controller/AdminInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1272">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.3529412" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>dormitory</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.3529412" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>annotations-api</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.3529412" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
